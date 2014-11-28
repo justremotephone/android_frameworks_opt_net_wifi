@@ -42,6 +42,7 @@ include $(BUILD_STATIC_LIBRARY)
 # ============================================================
 LIB_WIFI_HAL := libwifi-hal
 
+ifneq ($(TARGET_NO_WIFI_HAL), true)
 ifeq ($(BOARD_WLAN_DEVICE), bcmdhd)
   LIB_WIFI_HAL := libwifi-hal-bcm
 else ifeq ($(BOARD_WLAN_DEVICE), qcwcn)
@@ -53,6 +54,7 @@ else ifeq ($(BOARD_WLAN_DEVICE), mrvl)
   # that sport Marvell's wifi have support for HAL
   # LIB_WIFI_HAL := libwifi-hal-mrvl
 endif
+endif #TARGET_NO_WIFI_HAL
 
 # Build the HalUtil
 # ============================================================
